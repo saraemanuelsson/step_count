@@ -11,21 +11,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const handleFormSubmit = function(event) {
-event.preventDefault();
+const handleFormSubmit = function(event) {    
+    event.preventDefault();
     const stepLog = getElement("#step-log");
     const listItem = createElement("li");
     const steps = createElement("div");
     const date = createElement("div");
-    steps.setAttribute("id", "steps");
-    date.setAttribute("id", "date")
+    const steptype = createElement("div");
+    steps.setAttribute("id", "steps-data");
+    date.setAttribute("id", "date-data");
+    type.setAttribute("id", "step-type-data")
     steps.textContent = `Steps: ${event.target.steps.value}`;
     date.textContent = `${event.target.date.value}`;
+    steptype.textContent = getCheckedType()
     stepLog.appendChild(listItem);
     listItem.appendChild(steps);
     listItem.appendChild(date);
+    listItem.appendChild(steptype);
     resetForm();
 };
+
+const getCheckedType = function() {
+    let checkedBoxValue
+    if (getElement("#walking").checked) {
+        checkedBoxValue = "Walking"
+    } else if (getElement("#running").checked) {
+        checkedBoxValue = "Running"
+    } else if (getElement("#biking").checked) {
+        checkedBoxValue = "Biking"
+    };
+    return checkedBoxValue;
+};
+
+// const getTypeFromRadio = function(radios, type) {
+//     radios = document.querySelectorAll('type');
+//     const checkedButton = radios.find((radio) => {radio.checked});
+//     return checkedButton.value;
+// };
 
 const getElement = function(identifier) {
     return document.querySelector(identifier);
