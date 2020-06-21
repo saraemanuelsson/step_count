@@ -21,7 +21,7 @@ const handleFormSubmit = function(event) {
     steps.setAttribute("id", "steps-data");
     date.setAttribute("id", "date-data");
     stepType.setAttribute("id", "step-type-data")
-    steps.textContent = `Steps: ${event.target.steps.value}`;
+    steps.textContent = `Steps: ${prettySteps(event.target.steps.value)}`;
     date.textContent = `${event.target.date.value}`;
     stepType.textContent = getCheckedType()
     stepLog.appendChild(listItem);
@@ -30,6 +30,13 @@ const handleFormSubmit = function(event) {
     listItem.appendChild(stepType);
     resetForm();
 };
+
+const prettySteps = function(steps) {
+    const numbersArray = steps.split("");
+    numbersArray.splice((-3), 0, ",");
+    const prettyNumber = numbersArray.join("");
+    return prettyNumber;
+}
 
 const getCheckedType = function() {
     let checkedBoxValue
