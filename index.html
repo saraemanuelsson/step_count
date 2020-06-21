@@ -2,37 +2,47 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Daily Step Count</title>
+    <title>Step Count</title>
     <script src="js/app.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
   </head>
   <body>
-      <form id="new-item-form">
-          <div id="form-wrapper">
-              <h2>New Step Entry</h2>
-              <div class="form-item">
-                  <label for="steps">Steps:</label>
-                  <input type="number" id="steps" required/>
-              </div>
-              <div class="form-item">
-                  <label for="date">Date:</label>
-                  <input type="date" id="date" required/>
-              </div>
-              <div class="form-item" id="radiobutton">
-                    <label id="walking-pic" for="walking">Walking</label>
-                    <input type="radio" id="walking" value="Walking" name="type" required>
-                    <label id="running-pic" for="running">Running</label>
-                    <input type="radio" id="running" value="Running" name="type" required>
-                    <label id="biking-pic" for="biking">Biking</label>
-                    <input type="radio" id="biking" value="Biking" name="type" required>
-              </div>
-          </div>
-          <input type="submit" value= "Log steps"/>
-      </form>
+    <header>
+        <form id="new-item-form">
+            <div id="form-wrapper">
+                <h2 id="new-step-entry" class="text">New Step Entry</h2>
+                <div class="form-item">
+                    <label class="text" for="steps">Steps:</label>
+                    <input type="number" id="steps" required/>
+                </div>
+                <div class="form-item">
+                    <label class="text" for="date">Date:</label>
+                    <input type="date" id="date" required/>
+                </div>
+                <div class="form-item" id="radiobutton">
+                    <div class="radiogroup">
+                        <label class="text" id="walking-pic" for="walking">Walking</label>
+                        <input type="radio" id="walking" value="Walking" name="type" required>
+                    </div>
+                    <div class="radiogroup">
+                        <label class="text" id="running-pic" for="running">Running</label>
+                        <input type="radio" id="running" value="Running" name="type" required>
+                    </div>
+                    <div class="radiogroup">
+                        <label class="text" id="biking-pic" for="biking">Biking</label>
+                        <input type="radio" id="biking" value="Biking" name="type" required>
+                    </div>
+                </div>
+                <input id="submit" type="submit" value= "SAVE"/>
+            </div>
 
-      <h1>Step Log</h1>
-      <ul id="step-log"></ul>
-      <div id="below-list"></div>
+        </form>
+    </header>
+    <div class="step-section">
+    <h1 class="text">Step Log</h1>
+    <ul id="step-log"></ul>
+    <div id="below-list"></div>
+    </div>
       
   </body>
 </html>

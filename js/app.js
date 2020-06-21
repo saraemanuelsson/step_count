@@ -17,17 +17,17 @@ const handleFormSubmit = function(event) {
     const listItem = createElement("li");
     const steps = createElement("div");
     const date = createElement("div");
-    const steptype = createElement("div");
+    const stepType = createElement("div");
     steps.setAttribute("id", "steps-data");
     date.setAttribute("id", "date-data");
-    type.setAttribute("id", "step-type-data")
+    stepType.setAttribute("id", "step-type-data")
     steps.textContent = `Steps: ${event.target.steps.value}`;
     date.textContent = `${event.target.date.value}`;
-    steptype.textContent = getCheckedType()
+    stepType.textContent = getCheckedType()
     stepLog.appendChild(listItem);
     listItem.appendChild(steps);
     listItem.appendChild(date);
-    listItem.appendChild(steptype);
+    listItem.appendChild(stepType);
     resetForm();
 };
 
@@ -42,12 +42,6 @@ const getCheckedType = function() {
     };
     return checkedBoxValue;
 };
-
-// const getTypeFromRadio = function(radios, type) {
-//     radios = document.querySelectorAll('type');
-//     const checkedButton = radios.find((radio) => {radio.checked});
-//     return checkedButton.value;
-// };
 
 const getElement = function(identifier) {
     return document.querySelector(identifier);
