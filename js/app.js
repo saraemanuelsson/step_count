@@ -1,14 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = getElement("#new-item-form");
     form.addEventListener("submit", handleFormSubmit);
-
-    const deleteDiv = getElement("#below-list");
-    const deleteButton = createElement("button");
-    deleteButton.textContent = "Delete All";
-    deleteButton.setAttribute("type", "button");
-    deleteDiv.appendChild(deleteButton);
+    const deleteButton = getElement("#delete-all")
     deleteButton.addEventListener("click", handleDeleteClick);
-
 });
 
 const handleFormSubmit = function(event) {    
@@ -33,10 +27,20 @@ const handleFormSubmit = function(event) {
 
 const prettySteps = function(steps) {
     const numbersArray = steps.split("");
-    numbersArray.splice((-3), 0, ",");
-    const prettyNumber = numbersArray.join("");
-    return prettyNumber;
-}
+    let prettyNumber
+    if (numbersArray.length > 6) {
+        numbersArray.splice((-6), 0, ",");
+        numbersArray.splice((-3), 0, ",");
+        prettyNumber = numbersArray.join("");
+        return prettyNumber;
+    } else if (numbersArray.length > 3) {
+        numbersArray.splice((-3), 0, ",");
+        prettyNumber = numbersArray.join("");
+        return prettyNumber;
+    }else {
+        return steps
+    };
+};
 
 const getCheckedType = function() {
     let checkedBoxValue
@@ -65,3 +69,4 @@ const resetForm = function() {
 const handleDeleteClick = function() {
     document.querySelectorAll("li").forEach(log => log.remove());
 };
+

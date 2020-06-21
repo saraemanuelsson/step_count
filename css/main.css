@@ -9,7 +9,7 @@ html {
     margin-left: 7%;
 }
 
-#new-item-form {
+header {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -109,4 +109,12 @@ button {
 
 .step-section {
     margin-top: 80px;
+}
+
+#total-steps {
+    display: inline-block;
+}
+
+h3 {
+    display: inline-block;
 }
